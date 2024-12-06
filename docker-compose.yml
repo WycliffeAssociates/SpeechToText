@@ -1,0 +1,29 @@
+services:
+  server:
+    build: ./server
+    ports:
+      - "8006:80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.llm-rag-server.rule=Host(`$DNS_NAME_SERVER`)"
+      - "traefik.http.routers.llm-rag-server.entrypoints=websecure"
+      - "traefik.http.routers.llm-rag-server.tls=true"
+    networks:
+      - traefik_default
+
+  app:
+    build: ./stt-ui
+    ports: 
+      - "5000:5000"
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.llm-rag.rule=Host(`$DNS_NAME_APP`)"
+      - "traefik.http.routers.llm-rag.entrypoints=websecure"
+      - "traefik.http.routers.llm-rag.tls=true"
+    networks:
+      - traefik_default
+
+networks:
+  traefik_default:
+    external: true

@@ -10,12 +10,12 @@ interface LanguageOption {
 };
 
 function App() {
-  const [audioFile, setAudioFile] = useState<File | null>(null);
   const options = supportedLanguages.map((option) => ({
     value: option,
     label: option,
   }));  
   const [availableLanguages, setAvailableLanguages] = useState<LanguageOption[]>(options);
+  const [audioFile, setAudioFile] = useState<File | null>(null);
   const [selectedLanguage, setSelectedLanguages] = useState<string>("eng");
   const [transcription, setTranscription] = useState<string>('Your transcription will appear here');
 
