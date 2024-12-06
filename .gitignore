@@ -1,0 +1,4 @@
+server/.virtual/
+stt-ui/.virtual/
+.vscode/
+__pycache__/
