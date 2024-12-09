@@ -5,9 +5,9 @@ services:
       - "8006:80"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.llm-rag-server.rule=Host(`$DNS_NAME_SERVER`)"
-      - "traefik.http.routers.llm-rag-server.entrypoints=websecure"
-      - "traefik.http.routers.llm-rag-server.tls=true"
+      - "traefik.http.routers.speech-to-text-server.rule=Host(`$DNS_NAME_SERVER`)"
+      - "traefik.http.routers.speech-to-text-server.entrypoints=websecure"
+      - "traefik.http.routers.speech-to-text-server.tls=true"
     networks:
       - traefik_default
 
@@ -18,9 +18,9 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.llm-rag.rule=Host(`$DNS_NAME_APP`)"
-      - "traefik.http.routers.llm-rag.entrypoints=websecure"
-      - "traefik.http.routers.llm-rag.tls=true"
+      - "traefik.http.routers.speech-to-text-app.rule=Host(`$DNS_NAME_APP`)"
+      - "traefik.http.routers.speech-to-text-app.entrypoints=websecure"
+      - "traefik.http.routers.speech-to-text-app.tls=true"
     networks:
       - traefik_default
 
