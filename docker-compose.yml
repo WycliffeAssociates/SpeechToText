@@ -3,27 +3,8 @@ services:
     build: ./server
     ports:
       - "8006:80"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.speech-to-text-server.rule=Host(`$DNS_NAME_SERVER`)"
-      - "traefik.http.routers.speech-to-text-server.entrypoints=websecure"
-      - "traefik.http.routers.speech-to-text-server.tls=true"
-    networks:
-      - traefik_default
-
   app:
     build: ./stt-ui
-    ports: 
+    ports:
       - "5000:5000"
     restart: unless-stopped
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.speech-to-text-app.rule=Host(`$DNS_NAME_APP`)"
-      - "traefik.http.routers.speech-to-text-app.entrypoints=websecure"
-      - "traefik.http.routers.speech-to-text-app.tls=true"
-    networks:
-      - traefik_default
-
-networks:
-  traefik_default:
-    external: true
