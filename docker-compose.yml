@@ -2,7 +2,7 @@ services:
   server:
     build: ./server
     ports:
-      - "8006:80"
+      - "8007:80"
   app:
     build: ./stt-ui
     ports:
