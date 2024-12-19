@@ -14,6 +14,6 @@ RUN npx tailwindcss init
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 5001
 
 CMD ["pnpm", "run", "dev"]
