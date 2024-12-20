@@ -49,7 +49,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "https://speech-to-text.walink.org/upload-audio",
+        "https://speech-to-text-server.walink.org/upload-audio",
         {
           method: "POST",
           body: formData,
