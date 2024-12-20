@@ -45,7 +45,7 @@ function App() {
     formData.append('language', language);
 
     try {
-      const response = await fetch('http://localhost:80/upload-audio', {
+      const response = await fetch('http://localhost:8007/upload-audio', {
         method: 'POST',
         body: formData,
       });
